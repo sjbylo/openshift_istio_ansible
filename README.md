@@ -42,10 +42,10 @@ Error from server (AlreadyExists): error when creating "STDIN": clusterrolebindi
 
 ## How to demo
 ### Demo mutual tls
-1. cd to mutual_tls directory
+1. cd to mutual_tls directory and ensure you are currently in the 'tutorial' project
 
 ```
-cd mutual_tls
+cd mutual_tls && oc project tutorial
 ```
 
 2. Create the gateway
@@ -769,7 +769,7 @@ Shortest transaction:	        0.01
 
 You can compare the Elapsed time and the Longest and Shortest transaction.
 
-As you can see, it took a lot longer to complete the load test since a delay has been introduced to one of the services. 
+As you can see, it took a lot longer to complete the load test since one of the services is failing and causing delay. 
 Also, the longest transation has incresed due to the added delay.
 
 

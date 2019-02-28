@@ -1,9 +1,11 @@
 NODE_PORT=`oc -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'`
-MY_URL=http://`hostname -I | awk '{print $1}'`:$NODE_PORT
+MY_HOST=`hostname -I | awk '{print $1}'`
+MY_URL=http://$MY_HOST:$NODE_PORT
+
+echo curl $MY_URL
 
 if [ "$1" = "-f" ]
 then
-	echo curl $MY_URL
 	while true
 	do
 		curl $MY_URL
