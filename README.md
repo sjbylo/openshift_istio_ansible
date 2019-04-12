@@ -948,4 +948,7 @@ You can find them all via:
 find $HOME/istio-tutorial | grep Controller.java$ 
 ```
 
+### Useful resources
+
+https://goo.gl/PNZRTM - The circuit breaker pattern
 
