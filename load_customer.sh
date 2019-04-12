@@ -1,13 +1,16 @@
 MY_URL=`oc get route customer -n tutorial -o jsonpath='{.spec.host}'`
 
-if [ "$1" = "-f" ]
-then
-	#echo curl $MY_URL
-	while true
-	do
-		curl $MY_URL
-		sleep 0.2
-	done
-else
-	for i in `seq 1 10`; do curl $MY_URL; done
-fi 
+cnt=15
+[ "$1" ] && cnt=$1
+[ "$1" = "-f" ] && cnt=9999999
+
+i=0
+while [ $i -lt $cnt ]
+do
+	curl $MY_URL
+	sleep 0.1
+	let i=$i+1
+done
+
+
+#for i in `seq 1 $cnt`; do curl $MY_URL; done
